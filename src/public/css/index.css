@@ -1,0 +1,163 @@
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form__label--required {
+    margin-left: 5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    color: #FF3333;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--text input,
+.form__input--text select,
+.form__input--textarea textarea {
+    padding: 10px;
+    width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    box-sizing: border-box;
+}
+
+.form__input--textname{
+            display: flex;
+            gap: 10px;
+            /* 間隔 */
+            width: 600px;
+            /* 全体の幅を合わせる */
+        }
+
+ /* 名前欄 - 2つの入力欄の横幅を調整 */
+.form__input--textname input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            appearance: none;
+            width: calc(50% - 5px);
+            /* gapの半分引いて、合計600pxに揃える */
+            box-sizing: border-box;
+        }
+
+.form__input--text input {
+    height: 40px;
+}
+
+.form__input--textarea textarea {
+    height: 180px;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ラジオボタン - 左揃え＆ラベル間に余白 */
+.form__input--radio {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 600px;
+    /* ラベル間の空白 */
+}
+
+.form__input--radio label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form__input--radio input[type="radio"] {
+    margin-right: 6px;
+}
+
+.form__group-content {
+    text-align: left;
+}
+
+.form__input--text select {
+    width: 500px;
+    text-align: left;
+}
+
+.form__input--select select {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    box-sizing: border-box;
+    margin-left: 0;
+}
+
+
+.form__input--tel {
+    display: flex;
+    gap: 10px;
+    /* 間隔 */
+    width: 600px;
+    /* 全体の幅を合わせる */
+}
+
+/* 名前欄 - 2つの入力欄の横幅を調整 */
+.form__input--tel input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    width: calc(50% - 5px);
+    /* gapの半分引いて、合計600pxに揃える */
+    box-sizing: border-box;
+}

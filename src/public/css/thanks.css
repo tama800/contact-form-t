@@ -1,0 +1,80 @@
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.thanks__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.thanks__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    background: #fff;
+}
+
+.thanks__main {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.thanks__background-text {
+    position: absolute;
+    font-size: 15vw;
+    color: #f5f3f1;
+    z-index: 0;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.thanks__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #7b6e65;
+}
+
+.thanks__heading h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.form__button {
+    margin-top: 10px;
+}
+
+.form__button-submit {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+    background: #7b6e65;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+}
