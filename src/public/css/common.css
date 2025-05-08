@@ -1,59 +1,64 @@
 .header {
-    background: #000;
+    background: white;
+    overflow: hidden;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 20px 15px;
+    padding: 40px 40px;
     max-width: 1230px;
 }
 
 .header-utilities {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
+}
+
+.header-left {
+    width: 200px;
+}
+
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 .header__logo {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 33px;
+    color: #7b6e65;
+    font-family: serif;
+    font-weight: normal;
+    white-space: nowrap;
 }
 
-.header-utilities nav {
-    width: 18%;
-}
-
-.header-nav {
+.header-right {
+    margin-left: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    min-width: 200px;
+    padding-right: 30px;
 }
+
 
 .header-nav__link {
-    color: #fff;
+    display: inline-block;
+    padding: 5px 25px;
+    border: 1px solid #D2B48C;
+    background-color: #EEEEEE;
+    color: #D2B48C;
     text-decoration: none;
-}
-
-
-
-.header-nav__item {
-    display: flex;
-    /* 横並びにする */
-    list-style: none;
-    /* ポイント：リストの点（●）を消す */
-    margin: 0;
-    padding: 0;
-}
-
-
-.header-nav__button {
-    border: none;
-    background: transparent;
-    color: #fff;
     font-size: 16px;
+    border-radius: 0px;
     cursor: pointer;
-    margin-left: 100px;
-    /* メニューの間にスペースをつける */
+}
+
+.header__line {
+    height: 1px;
+    background-color: #e6ded7;
+    margin: 0;
+    width: 100%;
 }

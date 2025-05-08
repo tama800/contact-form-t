@@ -5,18 +5,6 @@ body {
     margin: 0;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    border-bottom: 1px solid #eee;
-}
-
-.header__title {
-    font-size: 28px;
-    font-weight: bold;
-}
 
 .header__login {
     color: #c1a78f;
@@ -26,48 +14,105 @@ body {
     text-decoration: none;
 }
 
+.header-nav__link {
+    display: inline-block;
+    padding: 2px 25px;
+    border: 1px solid #D2B48C;
+    background-color: #EEEEEE;
+    color: #D2B48C;
+    text-decoration: none;
+    border-radius: 0px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.logout-button {
+    padding: 6px 20px;
+    font-size: 15px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+}
+
 .main {
-    padding: 40px 60px;
+    padding: 30px 60px;
 }
 
 .main__title {
-    font-size: 24px;
+    font-family: serif;
+    font-weight: normal;
+    color: #7b6e65;
+    font-size: 30px;
+    margin-top: 0;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.filters {
+.filters__search {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
+    gap: 10px 30px;
+    max-width: 1200px;
+    margin: 0 auto 0px auto;
 }
 
 .filter__input,
 .filter__select {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 3px;
+    border-radius: 0;
     background-color: #f8f8f8;
 }
+
+.filter__input {
+    width: 285px;
+}
+
+.filter__select[name="gender"] {
+    width: 85px;
+}
+
+.filter__select[name="category_id"] {
+    width: 205px;
+}
+
+.filter__select[name="from_date"],
+.filter__select[name="to_date"] {
+    width: 120px;
+}
+
 
 .btn {
     padding: 10px 20px;
     border: none;
-    border-radius: 3px;
     cursor: pointer;
 }
 
 .search {
     background-color: #7c6651;
     color: #fff;
+    width: 100px;
 }
 
 .reset {
     background-color: #e5d5c4;
     color: #fff;
+    text-decoration: none;
+
 }
 
 .export {
+    padding-top: 15px 20px;
     margin-bottom: 20px;
     background-color: #f0ece9;
     color: #7c6651;
@@ -76,19 +121,24 @@ body {
 
 .contact-table {
     width: 100%;
+    max-width: 1200px;/* テーブル全体を狭くする */
     border-collapse: collapse;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
     margin-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .contact-table th {
     background-color: #7c6651;
     color: #fff;
-    padding: 12px;
+    padding: 12px 40px;
     text-align: left;
 }
 
 .contact-table td {
-    padding: 12px;
+    padding: 15px 40px;
     border-bottom: 1px solid #eee;
 }
 
@@ -98,21 +148,122 @@ body {
     border: 1px solid #f5eee9;
 }
 
-.pagination {
+.export-pagination-container {
     display: flex;
-    gap: 8px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.pagination button {
-    padding: 6px 12px;
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    gap: 0;
+}
+
+.pagination a,
+.pagination span {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: 'Georgia';
+    color: #7a6e5b;
+    border: 1px solid #d6cfc7;
     background-color: #fff;
-    color: #7c6651;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    text-decoration: none;
 }
 
 .pagination .active {
-    background-color: #7c6651;
+    background-color: #a1927a;
+    color: #fff;
+}
+
+/* モーダル全体 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* モーダル中身（横幅＆位置調整） */
+.modal-content {
+    background: #fff;
+    padding: 150px 80px;
+    width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: #6b4e3d;
+    font-family: "Helvetica Neue", sans-serif;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6b4e3d;
+    cursor: pointer;
+    line-height: 24px;
+    text-align: center;
+}
+
+/* 表 */
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    table-layout: fixed;
+}
+
+.modal-content th {
+    text-align: left;
+    font-weight: bold;
+    padding: 15px;
+    width: 30%;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.modal-content td {
+    padding: 8px 30px;
+    color: #6b4e3d;
+    word-break: break-word;
+}
+
+/* 削除ボタン */
+.modal-content .btn.delete {
+    background-color: #b13636;
     color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

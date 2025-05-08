@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
-  <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
-</head>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
+@endsection
 
-<body>
-  <header class="header">
-    <div class="header__inner">
-      <a class="header__logo" href="/">
-        Contact Form
-      </a>
-    </div>
-  </header>
-
+@section('content')
   <main>
     <div class="confirm__content">
       <div class="confirm__heading">
@@ -31,21 +17,20 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お名前</th>
               <td class="confirm-table__text">
+                <div class="name-input-group">
                 <input type="text" name="last_name" value="{{ $contact['last_name']}}" readonly/>
                 <input type="text" name="first_name" value="{{ $contact['first_name']}}" readonly />
+                </div>
               </td>
             </tr>
             <tr class="confirm-table__row">
               <th class="confirm-table__header">性別</th>
               <td class="confirm-table__text">
-                
-
                 @php
                 $genderText = [1 => '男性', 2 => '女性', 3 => 'その他'];
                 @endphp
                 {{ $genderText[$contact['gender']] }}
                 <input type="hidden" name="gender" value="{{ $contact['gender'] }}" />
-          <!--<input type="text" name="gender" value="{{ $genderText[$contact['gender']]}}" readonly />-->
               </td>
             </tr>
             <tr class="confirm-table__row">
@@ -76,20 +61,16 @@
               <th class="confirm-table__header">お問い合わせの種類</th>
               <td class="confirm-table__text">
                 @php
-  $categoryLabel = [
-    '1' => '商品のお届けについて',
-    '2' => '商品の交換について',
-    '3' => '商品トラブル',
-    '4' => 'ショップへのお問い合わせ',
-    '5' => 'その他'
-  ];
-@endphp
-
+                  $categoryLabel = [
+                  '1' => '商品のお届けについて',
+                  '2' => '商品の交換について',
+                  '3' => '商品トラブル',
+                  '4' => 'ショップへのお問い合わせ',
+                  '5' => 'その他'
+                  ];
+                @endphp
                 {{ $categoryLabel[$contact['category_id']] }}
-<input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
-
-
-                <!--<input type="text" name="category_id" value="{{ $contact['category_id']}}" readonly/>-->
+                <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
               </td>
             </tr>
             <tr class="confirm-table__row">
@@ -102,6 +83,7 @@
         </div>
         <div class="form__button">
           <button class="form__button-submit" type="submit">送信</button>
+          <button type="button" class="form__button-link" onclick="history.back()">修正</button>
         </div>
       </form>
     </div>
@@ -109,3 +91,4 @@
 </body>
 
 </html>
+@endsection

@@ -10,7 +10,6 @@ class Category extends Model
 use HasFactory;
     protected $fillable = ['content'];
 
-    // カテゴリは複数のお問い合わせ（contacts）を持つ
     public function contacts()
     {
         return $this->hasMany(Contact::class);

@@ -20,7 +20,6 @@ class Contact extends Model
         'detail'
     ];
 
-    // お問い合わせは1つのカテゴリに属する
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -1,60 +1,104 @@
-.login-form__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+body {
+    background-color: #efe7e1;
+    font-family: serif;
+    margin: 0;
+    padding: 0;
 }
 
 .login-form__heading {
-    margin-bottom: 20px;
     text-align: center;
+    font-family: serif;
+    font-weight: normal;
+    color: #7b6e65;
+    padding: 20px 20px;
+}
+
+.login-form__content {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 50px 55px;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form {
-    margin: 0 auto;
-    width: 25%;
+    width: 100%;
     text-align: center;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: normal;
+    font-family: serif;
+    color: #5e4b3c;
 }
+
 
 .form__group {
     margin-bottom: 5px;
+    padding-top: 20px;
+    text-align: left;
 }
 
 .form__group-title {
+    width: 75%;
+    margin: 0 auto 10px auto;
     text-align: left;
-}
-
-.form__error {
-    height: 20px;
-    color: #ff0000;
-    text-align: left;
+    font-size: 20px;
+    font-family: serif;
+    margin-bottom: 20px;
+    color: #5e4b3c;
 }
 
 .form__input--text input {
     padding: 10px;
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
+    display: block;
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 3px;
-
+    font-size: 14px;
+    background-color: #f7f7f7;
     appearance: none;
+    color: black;
 }
 
 .form__button {
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 70px;
 }
 
 .form__button-submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    background: #7e6b5a;
     color: #fff;
+    font-weight: normal;
+    padding: 10px 20px;
+    border: none;
+    font-size: 15px;
     cursor: pointer;
 }
 
-.register__link {
-    margin-top: 20px;
+.header-nav__link {
+    display: inline-block;
+    padding: 2px 25px;
+    border: 1px solid #D2B48C;
+    background-color: #EEEEEE;
+    color: #D2B48C;
+    text-decoration: none;
+    border-radius: 0px;
+    font-size: 18px;
     text-align: center;
+    opacity: 0.5;
+}
+
+.form__error {
+    color: #ff0000;
+    font-size: 15px;
+    margin-top: 5px;
+    width: 75%;
+    margin: 5px auto 0 auto;
+    text-align: left;
 }

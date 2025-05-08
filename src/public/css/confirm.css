@@ -1,18 +1,6 @@
-.header {
-    background: #000;
-}
-
-.header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header__logo {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
+body {
+    background-color: white;
+    font-family: serif;
 }
 
 .confirm__content {
@@ -24,11 +12,32 @@
 .confirm__heading {
     margin-bottom: 40px;
     text-align: center;
+    font-weight: normal;
+    color: #7b6e65;
+    font-size: 18px;
+    font-family: serif;
 }
 
 .form {
     margin: 0 auto;
     width: 70%;
+}
+
+.name-input-group {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+}
+
+.name-input-group input {
+    width: 50px;
+    margin-right: 0px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-family: serif;
+    padding: 0;
 }
 
 .confirm-table {
@@ -40,22 +49,31 @@
 }
 
 .confirm-table__header {
-    padding: 15px;
-    width: 20%;
+    padding: 20px 40px;
+    width: 30%;
     border-bottom: 1px solid #ddd;
-    background-color: #eee;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+    background-color: #b39a7d;
+    color: white;
 }
 
 .confirm-table__text {
+    padding: 16px;
+    font-family: serif;
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
 
 .confirm-table__text input {
     width: 100%;
+    font-size: 16px;
+    font-family: serif;
     outline: none;
     border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 .confirm-table__row:last-child .confirm-table__header,
@@ -64,17 +82,28 @@
 }
 
 .form__button {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     margin-top: 30px;
-    text-align: center;
 }
 
 .form__button-submit {
     padding: 10px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
+    width: 100px;
+    height: 40px;
+    background: #7e6b5a;
     color: #fff;
+    border: none;
+    font-weight: normal;
     cursor: pointer;
+}
+
+.form__button-link {
+    background: transparent;
+    color: #7e6b5a;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }

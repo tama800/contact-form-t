@@ -15,27 +15,21 @@
   <header class="header">
     <div class="header__inner">
       <div class="header-utilities">
-        <a class="header__logo" href="/register">
+      <!-- 左側：空白スペース -->
+      <div class="header-left"></div>
+      <!-- 中央：ロゴ -->
+      <div class="header-center">
+      <div class="header__logo">
           FashionablyLate
-        </a>
-        @yield('header-button')
-        <nav>
-          <ul class="header-nav">
-            @if (Auth::check())
-            <li class="header-nav__item">
-              <a class="header-nav__link" href="/mypage">マイページ</a>
-            </li>
-            <li class="header-nav__item">
-              <form class="form" action="/logout" method="post">
-                @csrf
-                <button class="header-nav__button">ログアウト</button>
-              </form>
-            </li>
-            @endif
-          </ul>
-        </nav>
+      </div>
+      </div>
+      <!-- 右側：ボタンとか -->
+      <div class="header-right">
+      @yield('header-button')
+      </div>
       </div>
     </div>
+    <div class="header__line"></div>
   </header>
 
   <main>

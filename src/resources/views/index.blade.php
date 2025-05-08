@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
-  <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-</head>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+@endsection
 
-<body>
-  <header class="header">
-    <div class="header__inner">
-      <a class="header__logo" href="/">
-        Contact Form
-      </a>
-    </div>
-  </header>
-
-
-  <main>
+@section('content')
     <div class="contact-form__content">
       <div class="contact-form__heading">
         <h2>Contact</h2>
@@ -38,7 +22,6 @@
               <input type="text" name="first_name" placeholder="例:太郎" value="{{ old('first_name')}}"/>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
               <!-- 姓のエラー -->
               @error('last_name')
                 {{ $message }}
@@ -46,7 +29,7 @@
               <!-- 名のエラー -->
               @error('first_name')
                 {{ $message }}
-              @enderror 
+              @enderror
             </div>
           </div>
         </div>
@@ -62,7 +45,6 @@
               <label><input type="radio" name="gender" value="3" />その他</label>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
               @error('gender')
                 {{ $message }}
               @enderror
@@ -76,10 +58,9 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="email" name="email" placeholder="test@example.com" value="{{ old('email')}}"/>
+              <input type="text" name="email" placeholder="test@example.com" value="{{ old('email')}}"/>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
               @error('email')
                 {{ $message }}
               @enderror
@@ -93,32 +74,43 @@
           </div>
           <div class="form__group-content">
               <div class="form__input--tel">
-  <input type="tel" id="tel1" maxlength="5" placeholder="080" value="{{ old('tel1')}}">
-  -
-  <input type="tel" id="tel2" maxlength="5" placeholder="1234" value="{{ old('tel2')}}">
-  -
-  <input type="tel" id="tel3" maxlength="5" placeholder="5678" value="{{ old('tel3')}}">
+              <input type="tel" name="tel1" id="tel1" placeholder="080" value="{{ old('tel1')}}">
+                -
+              <input type="tel" name="tel2" id="tel2" placeholder="1234" value="{{ old('tel2')}}">
+                -
+              <input type="tel" name="tel3" id="tel3" placeholder="5678" value="{{ old('tel3')}}">
 
-<!-- ここに結合結果を入れて送信する -->
-<input type="hidden" name="tel" id="tel">
+              <!-- ここに結合結果を入れて送信する -->
+              <input type="hidden" name="tel" id="tel">
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const tel1 = document.getElementById('tel1');
-    const tel2 = document.getElementById('tel2');
-    const tel3 = document.getElementById('tel3');
-    const tel = document.getElementById('tel');
+          <script>
+              document.addEventListener('DOMContentLoaded', function () {
+              const form = document.querySelector('form');
+              const tel1 = document.getElementById('tel1');
+              const tel2 = document.getElementById('tel2');
+              const tel3 = document.getElementById('tel3');
+              const tel = document.getElementById('tel');
 
-    form.addEventListener('submit', function () {
-      tel.value = `${tel1.value}-${tel2.value}-${tel3.value}`;
-    });
-  });
-</script>
-            </div>
+              form.addEventListener('submit', function (e) {
+              e.preventDefault(); // まず送信止める！
+
+              const t1 = tel1.value.trim();
+              const t2 = tel2.value.trim();
+              const t3 = tel3.value.trim();
+
+              if (!t1 && !t2 && !t3) {
+              tel.value = '';
+              } else {
+              tel.value = `${t1}-${t2}-${t3}`;
+              }
+
+              form.submit(); // tel の中身がセットされたあとに送信！
+              });
+          });
+          </script>
+        </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
-             @error('tel')
+              @error('tel')
                 {{ $message }}
               @enderror
             </div>
@@ -134,7 +126,6 @@
               <input type="text" name="address" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address')}}"/>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
               @error('address')
                 {{ $message }}
               @enderror
@@ -150,7 +141,6 @@
               <input type="text" name="building" placeholder="例:千駄ヶ谷マンション101" value="{{ old('building')}}" />
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
             </div>
           </div>
         </div>
@@ -162,7 +152,7 @@
           <div class="form__group-content">
             <div class="form__input--select">
               <select name="category_id" id="category_id" value="{{ old('category_id')}}">
-                <option value="">選択してください  ▼</option>
+                <option value="">選択してください</option>
                 <option value="1">商品のお届けについて</option>
                 <option value="2">商品の交換について</option>
                 <option value="3">商品トラブル</option>
@@ -171,7 +161,6 @@
               </select>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
               @error('category_id')
                 {{ $message }}
               @enderror
@@ -188,8 +177,7 @@
               <textarea name="detail" placeholder="お問い合わせ内容をご記載ください"> {{ old('detail')}}</textarea>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
-              @error('name')
+              @error('detail')
                 {{ $message }}
               @enderror
             </div>
@@ -200,7 +188,4 @@
         </div>
       </form>
     </div>
-  </main>
-</body>
-
-</html>
+    @endsection

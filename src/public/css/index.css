@@ -1,21 +1,6 @@
-.header {
-    background: #000;
-}
-
-.header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header__logo {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-}
-
 .contact-form__content {
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    color: #7b6e65;
     margin: 0 auto;
     padding: 30px 15px;
     max-width: 1230px;
@@ -24,6 +9,7 @@
 .contact-form__heading {
     margin-bottom: 40px;
     text-align: center;
+    font-family: serif;
 }
 
 .form {
@@ -63,23 +49,20 @@
 }
 
 .form__input--textname{
-            display: flex;
-            gap: 10px;
-            /* 間隔 */
-            width: 600px;
-            /* 全体の幅を合わせる */
-        }
+    display: flex;
+    gap: 10px;
+    width: 600px;
+}
 
- /* 名前欄 - 2つの入力欄の横幅を調整 */
+
 .form__input--textname input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            appearance: none;
-            width: calc(50% - 5px);
-            /* gapの半分引いて、合計600pxに揃える */
-            box-sizing: border-box;
-        }
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+    width: calc(50% - 5px);/* gapの半分引いて、合計600pxに揃える */
+    box-sizing: border-box;
+}
 
 .form__input--text input {
     height: 40px;
@@ -94,23 +77,27 @@
 }
 
 .form__button-submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
+    background-color: #7b6e65;
     color: #fff;
+    font-weight: normal;
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
+    transition: opacity 0.2s;
 }
 
-/* ラジオボタン - 左揃え＆ラベル間に余白 */
+.form__button-submit:hover {
+    opacity: 0.85;
+}
+
+/* ラジオボタン */
 .form__input--radio {
     display: flex;
     justify-content: flex-start;
     gap: 30px;
     width: 600px;
-    /* ラベル間の空白 */
 }
 
 .form__input--radio label {
@@ -119,6 +106,7 @@
     font-size: 16px;
     cursor: pointer;
 }
+
 .form__input--radio input[type="radio"] {
     margin-right: 6px;
 }
@@ -133,31 +121,41 @@
 }
 
 .form__input--select select {
-    padding: 10px;
+    text-align: left;
+    padding: 12px;
     width: 300px;
     border: 1px solid #ddd;
     border-radius: 3px;
     appearance: none;
     box-sizing: border-box;
     margin-left: 0;
+    margin-right: auto;
 }
-
 
 .form__input--tel {
     display: flex;
     gap: 10px;
-    /* 間隔 */
     width: 600px;
-    /* 全体の幅を合わせる */
 }
 
-/* 名前欄 - 2つの入力欄の横幅を調整 */
 .form__input--tel input {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
     appearance: none;
     width: calc(50% - 5px);
-    /* gapの半分引いて、合計600pxに揃える */
     box-sizing: border-box;
+}
+
+.form__input--textname input,
+.form__input--text input,
+.form__input--tel input,
+.form__input--select select,
+.form__input--textarea textarea {
+    background-color: #f5f3f1;
+    color: #7b6e65;
+}
+
+.form__input--select select option[value=""] {
+    color: #c3b7ae;
 }

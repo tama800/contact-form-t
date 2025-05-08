@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,16 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', [ContactController::class, 'index']);
-Route::match(['get', 'post'], '/confirm', [ContactController::class, 'confirm']);
-
-/*Route::post('/confirm', [ContactController::class, 'confirm']);*/
+Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/contacts', [ContactController::class, 'store']);
-Route::get('/auth/register', [ContactController::class, 'register']);
-Route::get('/auth/login', [ContactController::class, 'login']);
-/*Route::middleware('auth')->group(function () {
-Route::get('/', [ContactController::class, 'index']);});後で有効にする*/
+Route::match(['get', 'post'], '/confirm', [ContactController::class, 'confirm']);
+Route::middleware('auth')->group(function () {
 Route::get('/admin', [ContactController::class, 'admin']);
+Route::get('/admin/search', [ContactController::class, 'search'])->name('admin.search');
+Route::get('/admin/export', [ContactController::class, 'export'])->name('contacts.export');
 Route::get('/thanks', [ContactController::class, 'thanks']);
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+});
 
 Route::post('/logout', function () {
     Auth::logout();
